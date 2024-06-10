@@ -1,0 +1,63 @@
+[versions]
+agp = "8.4.1"
+androidGradle = "7.0.4"
+androidscrollingimageview = "1.2"
+androidscrollingimageviewVersion = "1.3.4"
+butterknife = "8.5.1"
+butterknifeCompiler = "8.8.1"
+butterknifeCompilerVersion = "10.2.3"
+butterknifeGradlePlugin = "10.2.3"
+butterknifeVersion = "8.8.1"
+cardSlider = "0.3.1"
+design = "28.0.0"
+flycotablayout = "3.0.0"
+glide = "3.7.0"
+gradle = "2.3.2"
+gradleVersion = "7.0.0"
+jakewhartonButterknife = "10.2.3"
+jakewhartonButterknifeVersion = "10.2.3"
+jakewhartonButterknifeCompiler = "10.0.0"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+appcompat = "1.7.0"
+keyboardvisibilityevent = "2.3.0"
+lombok = "1.18.12"
+lombokVersion = "1.18.32"
+material = "1.12.0"
+
+[libraries]
+androidscrollingimageview = { module = "com.github.Q42:AndroidScrollingImageView", version.ref = "androidscrollingimageview" }
+androidscrollingimageview-v134 = { module = "com.github.Q42:AndroidScrollingImageView", version.ref = "androidscrollingimageviewVersion" }
+butterknife = { module = "com.jakewharton:butterknife", version.ref = "butterknife" }
+butterknife-compiler = { module = "com.jakewharton:butterknife-compiler", version.ref = "butterknife" }
+butterknife-compiler-v1000 = { module = "com.jakewharton:butterknife-compiler", version.ref = "jakewhartonButterknifeCompiler" }
+butterknife-compiler-v1023 = { module = "com.jakewharton:butterknife-compiler", version.ref = "butterknifeCompilerVersion" }
+butterknife-compiler-v881 = { module = "com.jakewharton:butterknife-compiler", version.ref = "butterknifeCompiler" }
+butterknife-gradle-plugin = { module = "com.jakewharton:butterknife-gradle-plugin", version.ref = "butterknifeGradlePlugin" }
+butterknife-v1000 = { module = "com.jakewharton:butterknife", version.ref = "jakewhartonButterknifeVersion" }
+butterknife-v1023 = { module = "com.jakewharton:butterknife", version.ref = "jakewhartonButterknife" }
+butterknife-v881 = { module = "com.jakewharton:butterknife", version.ref = "butterknifeVersion" }
+card-slider = { module = "com.ramotion.cardslider:card-slider", version.ref = "cardSlider" }
+constraintlayout = { module = "androidx.constraintlayout:constraintlayout" }
+design = { module = "com.android.support:design", version.ref = "design" }
+flycotablayout = { module = "io.github.h07000223:flycoTabLayout", version.ref = "flycotablayout" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+google-material = { module = "com.google.android.material:material" }
+gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
+gradle-v700 = { module = "com.android.tools.build:gradle", version.ref = "gradleVersion" }
+gradle-v704 = { module = "com.android.tools.build:gradle", version.ref = "androidGradle" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+keyboardvisibilityevent = { module = "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent", version.ref = "keyboardvisibilityevent" }
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+lombok-v11832 = { module = "org.projectlombok:lombok", version.ref = "lombokVersion" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+recyclerview = { module = "androidx.recyclerview:recyclerview" }
+transitionseverywhere = { module = "com.andkulikov:transitionseverywhere" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+

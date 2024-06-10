@@ -1,0 +1,56 @@
+
+apply plugin: 'com.android.application'
+//apply plugin: 'com.jakewharton.butterknife'
+android {
+    namespace 'com.czdxwx.wear'
+    compileSdk 34
+    viewBinding {
+        enabled = true
+    }
+    defaultConfig {
+        applicationId "com.czdxwx.wear"
+        minSdk 29
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    tasks.withType(JavaCompile).configureEach {
+        options.fork = true
+        options.forkOptions.jvmArgs += [
+                '--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED',
+                '--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED',
+                '--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED']
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+//    implementation 'com.jakewharton:butterknife:10.0.0'
+//    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+    implementation libs.glide
+    implementation libs.keyboardvisibilityevent
+    implementation libs.design
+    implementation libs.google.material
+    implementation libs.recyclerview
+    implementation libs.constraintlayout
+    implementation libs.flycotablayout
+    implementation libs.card.slider
+    compileOnly libs.lombok.v11832
+    annotationProcessor libs.lombok.v11832
+}

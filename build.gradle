@@ -1,0 +1,32 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+
+buildscript {
+    repositories {
+	mavenCentral()
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+            }
+        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.fabric.io/public'}
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    }
+    dependencies {
+        classpath libs.gradle.v700 // 或其他适用的版本
+    }
+
+}
+
+
+
+plugins {
+alias(libs.plugins.android.application) apply false
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+
+    }
+}
