@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.czdxwx.wear.R;
@@ -12,6 +13,7 @@ import com.czdxwx.wear.R;
 
 public class SliderAdapter extends RecyclerView.Adapter<SliderCard> {
 
+    //卡片数量
     private final int count;
     private final int[] content;
     private final View.OnClickListener listener;
@@ -22,6 +24,7 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderCard> {
         this.listener = listener;
     }
 
+    @NonNull
     @Override
     public SliderCard onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view = LayoutInflater

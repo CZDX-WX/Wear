@@ -58,11 +58,17 @@ public class MainActivity extends AppCompatActivity {
     // 布局管理器
     private CardSliderLayoutManager layoutManger;
     private RecyclerView recyclerView;
+
+    //切换器
+
     private ImageSwitcher mapSwitcher;
     private TextSwitcher temperatureSwitcher;
     private TextSwitcher placeSwitcher;
     private TextSwitcher clockSwitcher;
     private TextSwitcher descriptionsSwitcher;
+
+
+    //坐标点
     private View greenDot;
 
     private TextView country1TextView;
@@ -80,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         // 初始化各个组件
         initRecyclerView();
         initCountryText();
@@ -90,9 +97,12 @@ public class MainActivity extends AppCompatActivity {
     // 初始化 RecyclerView
     private void initRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        //card适配器
         recyclerView.setAdapter(sliderAdapter);
+        //设置固定尺寸
         recyclerView.setHasFixedSize(true);
 
+        //设置滑动监听
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {

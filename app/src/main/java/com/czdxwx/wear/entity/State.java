@@ -16,5 +16,5 @@ public class State {
     private String district;
     private String temperature;
     private String time;
-
+    private String device_name;
 }

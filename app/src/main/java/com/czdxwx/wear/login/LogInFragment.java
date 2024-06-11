@@ -20,7 +20,7 @@ import androidx.transition.TransitionManager;
 import androidx.transition.TransitionSet;
 
 import com.czdxwx.wear.R;
-import com.czdxwx.wear.pages.MainActivity;
+import com.czdxwx.wear.pages.TabActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -80,7 +80,7 @@ public class LogInFragment extends AuthFragment {
 //                    sharedPreferences.edit().putBoolean("isLoggedIn", true).apply();
 
                     // 跳转到下一个Activity
-                    Intent intent = new Intent(getContext(), MainActivity.class);
+                    Intent intent = new Intent(getContext(), TabActivity.class);
                     startActivity(intent);
 //                } else {
 //                    // 显示验证失败的提示信息
