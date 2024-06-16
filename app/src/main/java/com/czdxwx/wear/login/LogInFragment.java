@@ -1,8 +1,6 @@
 package com.czdxwx.wear.login;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -20,6 +18,7 @@ import androidx.transition.TransitionManager;
 import androidx.transition.TransitionSet;
 
 import com.czdxwx.wear.R;
+import com.czdxwx.wear.network.ApiClient;
 import com.czdxwx.wear.pages.TabActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -29,23 +28,24 @@ import java.util.List;
 
 public class LogInFragment extends AuthFragment {
 
+    //http请求
+    private ApiClient apiClient;
     // 受保护的视图成员变量
     protected List<TextInputEditText> views;
-    private SharedPreferences sharedPreferences; // 添加SharedPreferences变量
+
+//    private final SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE);; // 添加SharedPreferences变量
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         caption.setText(getString(R.string.log_in_label));
-        view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.color_log_in));
+        view.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.color_log_in));
 
-        // 初始化 views 列表
+        //****************************************************初始化 views列表
         views = new ArrayList<>();
         views.add(view.findViewById(R.id.email_input_edit));
         views.add(view.findViewById(R.id.password_input_edit));
-
-        // 初始化 SharedPreferences
-        sharedPreferences = getActivity().getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE);
 
         for (TextInputEditText editText : views) {
             if (editText.getId() == R.id.password_input_edit) {
@@ -65,44 +65,44 @@ public class LogInFragment extends AuthFragment {
                     editText.setSelected(isEnabled);
                 }
             });
+        }
 
-            // 在caption上添加点击事件监听器
-            caption.setOnClickListener(v -> {
-//                // 获取输入的邮箱和密码
-//                String email = views.get(0).getText().toString();
-//                String password = views.get(1).getText().toString();
+
+        // 在caption上添加点击事件监听器
+        caption.setOnClickListener(v -> {
+//            // 获取输入的邮箱和密码
+//            String email = views.get(0).getText().toString();
+//            String password = views.get(1).getText().toString();
 //
-//                // 模拟验证过程，实际应用中应该发送HTTP请求到数据库中进行验证
-//                boolean isValid = validateCredentials(email, password);
-//
-//                if (isValid) {
+//            // 模拟验证过程，实际应用中应该发送HTTP请求到数据库中进行验证
+//            apiClient.validateCredentials("username", "password", new Response.Listener<JSONObject>() {
+//                @Override
+//                public void onResponse(JSONObject response) {
+//                    Toast.makeText(requireContext(), "Login Successful: " + response.toString(), Toast.LENGTH_SHORT).show();
 //                    // 保存登录状态
 //                    sharedPreferences.edit().putBoolean("isLoggedIn", true).apply();
-
-                    // 跳转到下一个Activity
+                    //                     跳转到下一个Activity
                     Intent intent = new Intent(getContext(), TabActivity.class);
                     startActivity(intent);
-//                } else {
-//                    // 显示验证失败的提示信息
-//                    Toast.makeText(getContext(), "邮箱或密码不正确", Toast.LENGTH_SHORT).show();
 //                }
-            });
+//            }, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError error) {
+//                    // Handle error
+//                    Toast.makeText(requireContext(), "邮箱或密码不正确", Toast.LENGTH_SHORT).show();
+//                }
+//            });
 
-//            // 检查是否已经登录过，如果是，则直接跳转到下一个Activity
-//            if (sharedPreferences.getBoolean("isLoggedIn", false)) {
-//                Intent intent = new Intent(getContext(), MainActivity.class);
-//                startActivity(intent);
-//            }
+        });
 
-        }
+//        // 检查是否已经登录过，如果是，则直接跳转到下一个Activity
+//        if (sharedPreferences.getBoolean("isLoggedIn", false)) {
+//            Intent intent = new Intent(getContext(), MainActivity.class);
+//            startActivity(intent);
+//        }
     }
 
-    private boolean validateCredentials(String email, String password) {
-        // 在这里进行验证，这里只是一个示例
-        // 实际应用中应该发送HTTP请求到数据库中进行验证
-        // 返回true表示验证通过，false表示验证失败
-        return email.equals("correct@email.com") && password.equals("correctpassword");
-    }
+
 
     @Override
     public int authLayout() {

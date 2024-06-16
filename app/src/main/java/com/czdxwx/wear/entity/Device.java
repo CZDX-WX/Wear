@@ -8,7 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Device {
+    private int id;
     private String name;
     private String owner;
-    private boolean isOnline;
+    private Integer isOnline;
 }

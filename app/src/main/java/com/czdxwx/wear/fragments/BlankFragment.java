@@ -28,7 +28,9 @@ public class BlankFragment extends Fragment {
     public BlankFragment() {
         // Required empty public constructor
     }
-
+    public static BlankFragment newInstance() {
+        return new BlankFragment();
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.

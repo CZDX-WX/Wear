@@ -28,7 +28,9 @@ public class AboutFragment extends Fragment {
     public AboutFragment() {
         // Required empty public constructor
     }
-
+    public static AboutFragment newInstance() {
+        return new AboutFragment();
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.

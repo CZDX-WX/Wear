@@ -1,4 +1,6 @@
-
+plugins {
+    alias(libs.plugins.jetbrains.kotlin.android)
+}
 apply plugin: 'com.android.application'
 //apply plugin: 'com.jakewharton.butterknife'
 android {
@@ -32,6 +34,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
 }
 
 dependencies {
@@ -42,6 +47,7 @@ dependencies {
     implementation libs.legacy.support.v4
     implementation libs.lifecycle.livedata.ktx
     implementation libs.lifecycle.viewmodel.ktx
+    implementation libs.core.ktx
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
@@ -57,6 +63,18 @@ dependencies {
     implementation libs.card.slider
     compileOnly libs.lombok.v11832
     annotationProcessor libs.lombok.v11832
-    implementation libs.ramotion.circle.menu
     implementation libs.baserecyclerviewadapterhelper4
+    implementation libs.library
+    implementation libs.gson
+    implementation libs.volley
+    implementation libs.material.spinner
+    implementation libs.titlebar
+    implementation  libs.refresh.layout.kernel      //核心必须依赖
+    implementation  libs.refresh.header.classics    //经典刷新头
+    implementation  libs.refresh.header.radar       //雷达刷新头
+    implementation  libs.refresh.header.falsify     //虚拟刷新头
+    implementation  libs.refresh.header.material    //谷歌刷新头
+    implementation  libs.github.refresh.header.two.level   //二级刷新头
+    implementation  libs.github.refresh.footer.ball        //球脉冲加载
+    implementation  libs.github.refresh.footer.classics    //经典加载
 }

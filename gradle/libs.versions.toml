@@ -1,5 +1,5 @@
 [versions]
-agp = "8.4.1"
+agp = "8.4.2"
 androidGradle = "7.0.4"
 androidscrollingimageview = "1.2"
 androidscrollingimageviewVersion = "1.3.4"
@@ -12,9 +12,13 @@ butterknifeVersion = "8.8.1"
 cardSlider = "0.3.1"
 design = "28.0.0"
 flycotablayout = "3.0.0"
+githubRefreshHeaderTwoLevel = "2.1.0"
+githubRefreshFooterBall = "2.1.0"
+githubRefreshFooterClassics = "2.1.0"
 glide = "3.7.0"
 gradle = "2.3.2"
-gradleVersion = "7.0.0"
+gradleVersion = "8.4.2"
+gson = "2.11.0"
 jakewhartonButterknife = "10.2.3"
 jakewhartonButterknifeVersion = "10.2.3"
 jakewhartonButterknifeCompiler = "10.0.0"
@@ -23,14 +27,25 @@ junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.7.0"
 keyboardvisibilityevent = "2.3.0"
+library = "2.1.0"
 lombok = "1.18.12"
 lombokVersion = "1.18.32"
 material = "1.12.0"
 activity = "1.9.0"
+materialSpinner = "1.3.1"
 ramotionCircleMenu = "0.3.2"
 legacySupportV4 = "1.0.0"
 lifecycleLivedataKtx = "2.8.1"
 lifecycleViewmodelKtx = "2.8.1"
+refreshLayoutKernel = "2.1.0"
+refreshHeaderClassics = "2.1.0"
+refreshHeaderRadar = "2.1.0"
+refreshHeaderFalsify = "2.1.0"
+refreshHeaderMaterial = "2.1.0"
+titlebar = "10.5"
+volley = "1.2.1"
+kotlin = "2.0.0"
+coreKtx = "1.10.1"
 
 [libraries]
 androidscrollingimageview = { module = "com.github.Q42:AndroidScrollingImageView", version.ref = "androidscrollingimageview" }
@@ -49,27 +64,42 @@ card-slider = { module = "com.ramotion.cardslider:card-slider", version.ref = "c
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout" }
 design = { module = "com.android.support:design", version.ref = "design" }
 flycotablayout = { module = "io.github.h07000223:flycoTabLayout", version.ref = "flycotablayout" }
+github-refresh-footer-classics = { module = "io.github.scwang90:refresh-footer-classics", version.ref = "githubRefreshFooterClassics" }
+github-refresh-footer-ball = { module = "io.github.scwang90:refresh-footer-ball", version.ref = "githubRefreshFooterBall" }
+github-refresh-header-two-level = { module = "io.github.scwang90:refresh-header-two-level", version.ref = "githubRefreshHeaderTwoLevel" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 google-material = { module = "com.google.android.material:material" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 gradle-v700 = { module = "com.android.tools.build:gradle", version.ref = "gradleVersion" }
 gradle-v704 = { module = "com.android.tools.build:gradle", version.ref = "androidGradle" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 keyboardvisibilityevent = { module = "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent", version.ref = "keyboardvisibilityevent" }
+library = { module = "com.kyleduo.switchbutton:library", version.ref = "library" }
 lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 lombok-v11832 = { module = "org.projectlombok:lombok", version.ref = "lombokVersion" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+material-spinner = { module = "com.jaredrummler:material-spinner", version.ref = "materialSpinner" }
 ramotion-circle-menu = { module = "com.ramotion.circlemenu:circle-menu", version.ref = "ramotionCircleMenu" }
 recyclerview = { module = "androidx.recyclerview:recyclerview" }
+refresh-header-material = { module = "io.github.scwang90:refresh-header-material", version.ref = "refreshHeaderMaterial" }
+refresh-header-falsify = { module = "io.github.scwang90:refresh-header-falsify", version.ref = "refreshHeaderFalsify" }
+refresh-header-radar = { module = "io.github.scwang90:refresh-header-radar", version.ref = "refreshHeaderRadar" }
+refresh-header-classics = { module = "io.github.scwang90:refresh-header-classics", version.ref = "refreshHeaderClassics" }
+refresh-layout-kernel = { module = "io.github.scwang90:refresh-layout-kernel", version.ref = "refreshLayoutKernel" }
+titlebar = { module = "com.github.getActivity:TitleBar", version.ref = "titlebar" }
 transitionseverywhere = { module = "com.andkulikov:transitionseverywhere" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
 lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
 lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+volley = { module = "com.android.volley:volley", version.ref = "volley" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
