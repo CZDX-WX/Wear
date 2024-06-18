@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.android.volley.Response;
 import com.czdxwx.wear.entity.Device;
+import com.czdxwx.wear.entity.State;
 
 import org.json.JSONObject;
 
@@ -33,7 +34,9 @@ public class ApiClient {
         apiService.fetchDevices(listener, errorListener);
     }
 
-
+    public void fetchStates(double time, Response.Listener<List<State>> listener, Response.ErrorListener errorListener) {
+        apiService.fetchStates(time,listener, errorListener);
+    }
     // 其他API调用方法
 }
 

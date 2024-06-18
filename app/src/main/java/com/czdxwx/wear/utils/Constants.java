@@ -3,7 +3,7 @@ package com.czdxwx.wear.utils;
 
 
 public class Constants {
-    public static final String BASE_URL = "https://47.109.198.70:8080/";
+    public static final String BASE_URL = "http://47.109.198.70:8080/";
     //获取设备列表
     public static final String DEVICE_GET_Devices = BASE_URL + "devices/getDevices";
     //获取状态列表

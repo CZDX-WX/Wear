@@ -4,6 +4,7 @@
     xmlns:tl="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#333244"
     android:fitsSystemWindows="true"
     tools:context=".pages.TabActivity">
 

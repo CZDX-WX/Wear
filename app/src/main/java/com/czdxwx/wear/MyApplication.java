@@ -11,5 +11,11 @@ public class MyApplication extends Application {
         super.onCreate();
         // 在这里进行应用程序级别的初始化操作
         Log.d(TAG, "Application started");
+
     }
+
+
+
+
+
 }

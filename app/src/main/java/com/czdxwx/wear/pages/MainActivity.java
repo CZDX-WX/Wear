@@ -27,14 +27,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.czdxwx.wear.R;
 import com.czdxwx.wear.cards.SliderAdapter;
+import com.czdxwx.wear.entity.State;
+import com.czdxwx.wear.network.ApiClient;
 import com.czdxwx.wear.utils.DecodeBitmapTask;
 import com.ramotion.cardslider.CardSliderLayoutManager;
 import com.ramotion.cardslider.CardSnapHelper;
 
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static String TAG = "MainActivity";
+//    private ActivityMainBinding viewBinding;
     // 点的坐标
     private final int[][] dotCoords = new int[5][2];
     // 图片资源数组
@@ -84,15 +88,44 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        viewBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
 
 
+        initSpinner();
+        initStates();
         // 初始化各个组件
         initRecyclerView();
         initCountryText();
         initSwitchers();
         initGreenDot();
     }
+
+
+    private List<State> states;
+    private ApiClient apiClient;
+    private double time;
+
+    private void initStates() {
+
+//        apiClient.fetchStates(this.time, new Response.Listener<List<State>>() {
+//            @Override
+//            public void onResponse(List<State> response) {
+//                states = response;
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Log.e(TAG, "onErrorResponse: ", error);
+//            }
+//        });
+    }
+
+    private void initSpinner() {
+
+
+    }
+
 
     // 初始化 RecyclerView
     private void initRecyclerView() {
@@ -156,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
         mapLoadListener = new DecodeBitmapTask.Listener() {
             @Override
             public void onPostExecuted(Bitmap bitmap) {
-                ((ImageView)mapSwitcher.getNextView()).setImageBitmap(bitmap);
+                ((ImageView) mapSwitcher.getNextView()).setImageBitmap(bitmap);
                 mapSwitcher.showNext();
             }
         };
@@ -252,8 +285,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onActiveCardChange(int pos) {
-        int animH[] = new int[] {R.anim.slide_in_right, R.anim.slide_out_left};
-        int animV[] = new int[] {R.anim.slide_in_top, R.anim.slide_out_bottom};
+        int animH[] = new int[]{R.anim.slide_in_right, R.anim.slide_out_left};
+        int animV[] = new int[]{R.anim.slide_in_top, R.anim.slide_out_bottom};
 
         final boolean left2right = pos < currentPosition;
         if (left2right) {
@@ -304,7 +337,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // TextView 工厂类
-    private class TextViewFactory implements  ViewSwitcher.ViewFactory {
+    private class TextViewFactory implements ViewSwitcher.ViewFactory {
 
         @StyleRes
         final int styleId;
@@ -349,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
     private class OnCardClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            final CardSliderLayoutManager lm =  (CardSliderLayoutManager) recyclerView.getLayoutManager();
+            final CardSliderLayoutManager lm = (CardSliderLayoutManager) recyclerView.getLayoutManager();
 
             if (lm.isSmoothScrolling()) {
                 return;

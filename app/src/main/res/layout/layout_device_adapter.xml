@@ -58,11 +58,11 @@
 
         <LinearLayout
             android:layout_width="100dp"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:layout_alignBaseline="@+id/device_name"
             android:layout_alignBottom="@+id/device_name"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="1dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="-18dp"
             android:gravity="center"
             android:orientation="horizontal"
@@ -73,6 +73,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
                 card_view:srcCompat="@mipmap/is_online" />
 
@@ -82,6 +83,7 @@
                 android:layout_height="wrap_content"
                 style="@style/tweetDate"
                 android:text="在线"
+                android:layout_marginBottom="10dp"
                 android:textSize="16sp" />
 
         </LinearLayout>

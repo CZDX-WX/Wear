@@ -67,7 +67,6 @@ dependencies {
     implementation libs.library
     implementation libs.gson
     implementation libs.volley
-    implementation libs.material.spinner
     implementation libs.titlebar
     implementation  libs.refresh.layout.kernel      //核心必须依赖
     implementation  libs.refresh.header.classics    //经典刷新头
@@ -77,4 +76,5 @@ dependencies {
     implementation  libs.github.refresh.header.two.level   //二级刷新头
     implementation  libs.github.refresh.footer.ball        //球脉冲加载
     implementation  libs.github.refresh.footer.classics    //经典加载
+    implementation libs.material.spinner
 }
