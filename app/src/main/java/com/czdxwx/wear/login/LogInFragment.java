@@ -79,7 +79,7 @@ public class LogInFragment extends AuthFragment {
 //                @Override
 //                public void onResponse(JSONObject response) {
 //                    Toast.makeText(requireContext(), "Login Successful: " + response.toString(), Toast.LENGTH_SHORT).show();
-//                    // 保存登录状态
+                    // 保存登录状态
 //                    sharedPreferences.edit().putBoolean("isLoggedIn", true).apply();
                     //                     跳转到下一个Activity
                     Intent intent = new Intent(getContext(), TabActivity.class);

@@ -2,6 +2,7 @@ package com.czdxwx.wear.network;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
 
 import com.android.volley.Response;
 import com.czdxwx.wear.entity.Device;
@@ -37,6 +38,13 @@ public class ApiClient {
     public void fetchStates(double time, Response.Listener<List<State>> listener, Response.ErrorListener errorListener) {
         apiService.fetchStates(time,listener, errorListener);
     }
-    // 其他API调用方法
+
+    public void getImageByCoordinates(String location, final Response.Listener<Bitmap> listener, final Response.ErrorListener errorListener){
+        apiService.getImageByCoordinates(location,listener,errorListener);
+    }
+
+    public void getPicByTime(String picName,final Response.Listener<String> listener, final Response.ErrorListener errorListener){
+        apiService.getPicByTime(picName,listener,errorListener);
+    }
 }
 

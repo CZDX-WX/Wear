@@ -2,12 +2,15 @@ package com.czdxwx.wear.network;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.czdxwx.wear.entity.Device;
 import com.czdxwx.wear.entity.Result;
 import com.czdxwx.wear.entity.State;
@@ -121,5 +124,52 @@ public class ApiService {
                 });
 
         VolleySingleton.getInstance(context).addToRequestQueue(jsonObjectRequest);
+    }
+
+    //取静态地图
+    public void getImageByCoordinates(String location, final Response.Listener<Bitmap> listener, final Response.ErrorListener errorListener) {
+        String url = Constants.GET_STATIC_MAP + location+"&location="+location;
+
+        ImageRequest imageRequest = new ImageRequest(url,
+                new Response.Listener<Bitmap>() {
+                    @Override
+                    public void onResponse(Bitmap response) {
+                        listener.onResponse(response);
+                    }
+                },
+                0, 0, null,
+                Bitmap.Config.RGB_565,
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("ApiService", "Error fetching image: " + error.getMessage());
+                        errorListener.onErrorResponse(error);
+                    }
+                });
+
+        VolleySingleton.getInstance(context).addToRequestQueue(imageRequest);
+    }
+
+    //根据时间取每一个状态的图片
+    public void getPicByTime(String picName,final Response.Listener<String> listener, final Response.ErrorListener errorListener){
+        String url = Constants.GET_PIC_OSS +picName ;
+
+        // 发起字符串请求，获取图片的字节数组
+        StringRequest request = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        listener.onResponse(response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // 处理请求错误
+                Log.e("获取状态图片", "onErrorResponse: ",error );
+            }
+        });
+
+
+        VolleySingleton.getInstance(context).addToRequestQueue(request);
     }
 }
