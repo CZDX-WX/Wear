@@ -3,8 +3,6 @@ package com.czdxwx.wear.pages;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
-import android.app.ActivityOptions;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
@@ -22,7 +20,6 @@ import android.widget.ViewSwitcher;
 import androidx.annotation.NonNull;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Response;
@@ -31,7 +28,6 @@ import com.czdxwx.wear.R;
 import com.czdxwx.wear.cards.SliderAdapter;
 import com.czdxwx.wear.entity.State;
 import com.czdxwx.wear.network.ApiClient;
-import com.deadline.statebutton.StateButton;
 import com.hjq.bar.OnTitleBarListener;
 import com.hjq.bar.TitleBar;
 import com.jaredrummler.materialspinner.MaterialSpinner;
@@ -237,13 +233,13 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         });
-        StateButton stateButton = findViewById(R.id.btn_refresh);
-        stateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getStates(()->{});
-            }
-        });
+//        StateButton stateButton = findViewById(R.id.btn_refresh);
+//        stateButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getStates(()->{});
+//            }
+//        });
     }
 
 
@@ -439,32 +435,32 @@ public class MainActivity extends AppCompatActivity {
     private class OnCardClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            final CardSliderLayoutManager lm = (CardSliderLayoutManager) recyclerView.getLayoutManager();
-
-            assert lm != null;
-            if (lm.isSmoothScrolling()) {
-                return;
-            }
-
-            final int activeCardPosition = lm.getActiveCardPosition();
-            if (activeCardPosition == RecyclerView.NO_POSITION) {
-                return;
-            }
-
-            final int clickedPosition = recyclerView.getChildAdapterPosition(view);
-            if (clickedPosition == activeCardPosition) {
-                final Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
-                intent.putExtra(DetailsActivity.BUNDLE_IMAGE_ID, pics.get(activeCardPosition % pics.size()));
-
-                final CardView cardView = (CardView) view;
-                final View sharedView = cardView.getChildAt(cardView.getChildCount() - 1);
-                final ActivityOptions options = ActivityOptions
-                        .makeSceneTransitionAnimation(MainActivity.this, sharedView, "shared");
-                startActivity(intent, options.toBundle());
-            } else if (clickedPosition > activeCardPosition) {
-                recyclerView.smoothScrollToPosition(clickedPosition);
-                onActiveCardChange(clickedPosition);
-            }
+//            final CardSliderLayoutManager lm = (CardSliderLayoutManager) recyclerView.getLayoutManager();
+//
+//            assert lm != null;
+//            if (lm.isSmoothScrolling()) {
+//                return;
+//            }
+//
+//            final int activeCardPosition = lm.getActiveCardPosition();
+//            if (activeCardPosition == RecyclerView.NO_POSITION) {
+//                return;
+//            }
+//
+//            final int clickedPosition = recyclerView.getChildAdapterPosition(view);
+//            if (clickedPosition == activeCardPosition) {
+//                final Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+//                intent.putExtra(DetailsActivity.BUNDLE_IMAGE_ID, pics.get(activeCardPosition % pics.size()));
+//
+//                final CardView cardView = (CardView) view;
+//                final View sharedView = cardView.getChildAt(cardView.getChildCount() - 1);
+//                final ActivityOptions options = ActivityOptions
+//                        .makeSceneTransitionAnimation(MainActivity.this, sharedView, "shared");
+//                startActivity(intent, options.toBundle());
+//            } else if (clickedPosition > activeCardPosition) {
+//                recyclerView.smoothScrollToPosition(clickedPosition);
+//                onActiveCardChange(clickedPosition);
+//            }
         }
     }
 

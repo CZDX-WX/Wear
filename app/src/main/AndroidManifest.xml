@@ -42,10 +42,10 @@
             android:exported="false" />
 
 
-        <activity
-            android:name=".pages.DetailsActivity"
-            android:screenOrientation="fullSensor"
-            tools:ignore="DiscouragedApi" />
+<!--        <activity-->
+<!--            android:name=".pages.DetailsActivity"-->
+<!--            android:screenOrientation="fullSensor"-->
+<!--            tools:ignore="DiscouragedApi" />-->
     </application>
 
 </manifest>

@@ -19,7 +19,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.ImageViewTarget;
 import com.czdxwx.wear.R;
 import com.czdxwx.wear.databinding.ActivityLoginBinding;
-
 import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {

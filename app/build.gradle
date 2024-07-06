@@ -1,6 +1,4 @@
-plugins {
-    alias(libs.plugins.jetbrains.kotlin.android)
-}
+
 apply plugin: 'com.android.application'
 //apply plugin: 'com.jakewharton.butterknife'
 android {
@@ -31,12 +29,10 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_21
-        targetCompatibility JavaVersion.VERSION_21
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = '17'
-    }
+
 }
 
 dependencies {
@@ -75,5 +71,5 @@ dependencies {
     implementation  libs.github.refresh.footer.ball        //球脉冲加载
     implementation  libs.github.refresh.footer.classics    //经典加载
     implementation libs.material.spinner
-    implementation libs.statebutton
+//    implementation libs.statebutton
 }
