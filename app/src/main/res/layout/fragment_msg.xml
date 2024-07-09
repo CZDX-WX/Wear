@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.MsgFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.hjq.bar.TitleBar
+        android:id="@+id/device_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:leftIcon="@null"
+        android:background="#333244"
+        app:titleColor="@color/white_text_color"
+        app:title="消息列表"
+        app:titleStyle="italic" />
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="MSG" />
+        android:layout_height="match_parent">
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_msg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        <com.scwang.smart.refresh.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
 
 </FrameLayout>

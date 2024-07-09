@@ -1,6 +1,8 @@
 
 apply plugin: 'com.android.application'
-//apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.huawei.agconnect'
+
 android {
     namespace 'com.czdxwx.wear'
     compileSdk 34
@@ -14,7 +16,16 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : applicationId,
+                JPUSH_APPKEY : "e2e105e9c3a59d14a00fa974", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
     }
+
     tasks.withType(JavaCompile).configureEach {
         options.fork = true
         options.forkOptions.jvmArgs += [
@@ -36,7 +47,14 @@ android {
 }
 
 dependencies {
+    // 此处以JPush 5.0.0 版本为例，5.0.0 版本开始可以自动拉取 JCore 包，无需另外配置
+    implementation libs.jpush
 
+    //若不集成厂商通道，可直接跳过以下依赖
+    // 极光厂商插件版本与接入 JPush 版本保持一致，下同
+    // 接入华为厂商
+    implementation 'com.huawei.hms:push:6.5.0.300'
+    implementation libs.huawei
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
@@ -47,7 +65,7 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
-    implementation libs.glide
+    implementation libs.glide.v370
     implementation libs.keyboardvisibilityevent
     implementation libs.design
     implementation libs.google.material

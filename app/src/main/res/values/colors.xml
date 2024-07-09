@@ -30,4 +30,6 @@
 
     <color name="green_dot_big">@color/blue</color>
     <color name="green_dot_small">@color/blue</color>
+
+    <color name="txt_color">#48495F</color>
 </resources>

@@ -35,7 +35,7 @@ public class ApiClient {
         apiService.fetchDevices(listener, errorListener);
     }
 
-    public void fetchStates(double time, Response.Listener<List<State>> listener, Response.ErrorListener errorListener) {
+    public void fetchStates(int time, Response.Listener<List<State>> listener, Response.ErrorListener errorListener) {
         apiService.fetchStates(time,listener, errorListener);
     }
 

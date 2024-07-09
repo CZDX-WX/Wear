@@ -1,4 +1,5 @@
 [versions]
+agcp = "1.6.0.300"
 agp = "8.4.2"
 androidGradle = "7.0.4"
 androidscrollingimageview = "1.2"
@@ -16,12 +17,15 @@ githubRefreshHeaderTwoLevel = "2.1.0"
 githubRefreshFooterBall = "2.1.0"
 githubRefreshFooterClassics = "2.1.0"
 glide = "4.16.0"
+glideVersion = "3.7.0"
 gradle = "2.3.2"
 gradleVersion = "8.4.2"
 gson = "2.11.0"
+huawei = "5.0.0"
 jakewhartonButterknife = "10.2.3"
 jakewhartonButterknifeVersion = "10.2.3"
 jakewhartonButterknifeCompiler = "10.0.0"
+jpush = "5.0.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
@@ -49,6 +53,7 @@ kotlin = "2.0.0"
 coreKtx = "1.10.1"
 
 [libraries]
+agcp = { module = "com.huawei.agconnect:agcp", version.ref = "agcp" }
 androidscrollingimageview = { module = "com.github.Q42:AndroidScrollingImageView", version.ref = "androidscrollingimageview" }
 androidscrollingimageview-v134 = { module = "com.github.Q42:AndroidScrollingImageView", version.ref = "androidscrollingimageviewVersion" }
 baserecyclerviewadapterhelper4 = { module = "io.github.cymchad:BaseRecyclerViewAdapterHelper4", version.ref = "baserecyclerviewadapterhelper4" }
@@ -69,11 +74,14 @@ github-refresh-footer-classics = { module = "io.github.scwang90:refresh-footer-c
 github-refresh-footer-ball = { module = "io.github.scwang90:refresh-footer-ball", version.ref = "githubRefreshFooterBall" }
 github-refresh-header-two-level = { module = "io.github.scwang90:refresh-header-two-level", version.ref = "githubRefreshHeaderTwoLevel" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+glide-v370 = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
 google-material = { module = "com.google.android.material:material" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 gradle-v700 = { module = "com.android.tools.build:gradle", version.ref = "gradleVersion" }
 gradle-v704 = { module = "com.android.tools.build:gradle", version.ref = "androidGradle" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+huawei = { module = "cn.jiguang.sdk.plugin:huawei", version.ref = "huawei" }
+jpush = { module = "cn.jiguang.sdk:jpush", version.ref = "jpush" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

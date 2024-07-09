@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Man!</string>
+    <string name="app_name">盲人监护</string>
 
     <string name="sign_up_label">注册</string>
     <string name="log_in_label">登录</string>
@@ -16,4 +16,10 @@
     <string name="text5">The Aegean Islands are within the sea and some bound it on its southern periphery…</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="network_err">Simulation network error</string>
+    <string name="empty_network_error">Network error, Click Retry</string>
+    <string name="empty_no_data">There is no data, Click Retry</string>
+
+    <string name="see_more">See More ...</string>
 </resources>

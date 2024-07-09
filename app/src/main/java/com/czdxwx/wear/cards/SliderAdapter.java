@@ -17,9 +17,9 @@ import java.util.List;
 public class SliderAdapter extends RecyclerView.Adapter<SliderCard> {
 
     // 卡片数量
-    private final int count;
+    private int count;
     // 位图列表
-    private final List<Bitmap> content;
+    private List<Bitmap> content;
     // 点击监听器
     private final View.OnClickListener listener;
 
@@ -28,6 +28,11 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderCard> {
         this.content = content;
         this.count = count;
         this.listener = listener;
+    }
+
+    public void update(List<Bitmap> pics){
+        this.content = pics;
+        this.count = content.size();
     }
 
     // 创建新的ViewHolder，当RecyclerView需要一个新的ViewHolder时会调用此方法
