@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 
 import com.android.volley.Response;
+import com.czdxwx.wear.entity.Alert;
 import com.czdxwx.wear.entity.Device;
 import com.czdxwx.wear.entity.State;
 
@@ -33,6 +34,10 @@ public class ApiClient {
 
     public void fetchDevices(Response.Listener<List<Device>> listener, Response.ErrorListener errorListener) {
         apiService.fetchDevices(listener, errorListener);
+    }
+
+    public void fetchAlerts(Response.Listener<List<Alert>> listener, Response.ErrorListener errorListener) {
+        apiService.fetchAlerts(listener, errorListener);
     }
 
     public void fetchStates(int time, Response.Listener<List<State>> listener, Response.ErrorListener errorListener) {

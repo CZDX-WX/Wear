@@ -1,10 +1,13 @@
 package com.czdxwx.wear.login;
 
+import static cn.jpush.android.api.JPushInterface.getRegistrationID;
+
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,6 +34,10 @@ public class LoginActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    Log.d("获取的RegistrationID是", "这是内容："+getRegistrationID(this));
+
+
 
     // 使用ViewBinding来绑定视图
     binding = ActivityLoginBinding.inflate(getLayoutInflater());

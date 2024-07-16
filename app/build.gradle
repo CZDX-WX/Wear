@@ -1,8 +1,7 @@
-
-apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'com.huawei.agconnect'
-
+plugins {
+    id "com.android.application"
+    id 'com.huawei.agconnect'
+}
 android {
     namespace 'com.czdxwx.wear'
     compileSdk 34
@@ -25,7 +24,15 @@ android {
                 JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
         ]
     }
-
+    signingConfigs {
+        config {
+            // 根据您实际的签名信息，替换以下参数中的xxxx
+            keyAlias 'key0'
+            keyPassword '123456'
+            storeFile file('C:\\Users\\12265\\Desktop\\Secrectkey\\key.jks')
+            storePassword '123456'
+        }
+    }
     tasks.withType(JavaCompile).configureEach {
         options.fork = true
         options.forkOptions.jvmArgs += [
@@ -34,7 +41,11 @@ android {
                 '--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED']
     }
     buildTypes {
+        debug {
+            signingConfig signingConfigs.config
+        }
         release {
+            signingConfig signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -43,17 +54,14 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
-
 }
-
 dependencies {
     // 此处以JPush 5.0.0 版本为例，5.0.0 版本开始可以自动拉取 JCore 包，无需另外配置
-    implementation libs.jpush
-
+    implementation libs.jpush.v540
     //若不集成厂商通道，可直接跳过以下依赖
     // 极光厂商插件版本与接入 JPush 版本保持一致，下同
     // 接入华为厂商
-    implementation 'com.huawei.hms:push:6.5.0.300'
+    implementation libs.push.v6110300
     implementation libs.huawei
     implementation libs.appcompat
     implementation libs.material
@@ -89,5 +97,6 @@ dependencies {
     implementation  libs.github.refresh.footer.ball        //球脉冲加载
     implementation  libs.github.refresh.footer.classics    //经典加载
     implementation libs.material.spinner
-//    implementation libs.statebutton
+    implementation libs.getactivity.toaster
+    implementation libs.mmkv
 }

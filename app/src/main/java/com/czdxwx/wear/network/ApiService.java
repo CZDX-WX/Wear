@@ -12,6 +12,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.czdxwx.wear.entity.Alert;
 import com.czdxwx.wear.entity.Device;
 import com.czdxwx.wear.entity.Result;
 import com.czdxwx.wear.entity.State;
@@ -75,6 +76,37 @@ public class ApiService {
                             Gson gson = new Gson();
                             Type resultType = new TypeToken<Result<List<Device>>>() {}.getType();
                             Result<List<Device>> result = gson.fromJson(response.toString(), resultType);
+                            if (result.getCode() == 0) {
+                                listener.onResponse(result.getData());
+                            } else {
+                                errorListener.onErrorResponse(new VolleyError(result.getMessage()));
+                            }
+                        } catch (JsonSyntaxException e) {
+                            errorListener.onErrorResponse(new VolleyError("Failed to parse JSON"));
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        errorListener.onErrorResponse(error);
+                    }
+                });
+
+        VolleySingleton.getInstance(context).addToRequestQueue(jsonObjectRequest);
+    }
+
+    public void fetchAlerts(final Response.Listener<List<Alert>> listener, final Response.ErrorListener errorListener) {
+        String url = Constants.GET_ALERT;
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            Gson gson = new Gson();
+                            Type resultType = new TypeToken<Result<List<Alert>>>() {}.getType();
+                            Result<List<Alert>> result = gson.fromJson(response.toString(), resultType);
                             if (result.getCode() == 0) {
                                 listener.onResponse(result.getData());
                             } else {

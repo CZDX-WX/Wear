@@ -533,7 +533,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Bitmap decodeBase64ToBitmap(String base64String) {
-        byte[] decodedString = Base64.decode(base64String, Base64.DEFAULT);
-        return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        // Check if base64String is valid
+        if (base64String == null || base64String.isEmpty()) {
+            return null;
+        }
+
+        // Trim any leading or trailing whitespace
+        base64String = base64String.trim();
+
+        // Check if base64String is properly padded
+        int padding = base64String.length() % 4;
+        if (padding > 0) {
+            base64String = base64String + "====".substring(padding);
+        }
+
+        // Decode base64String to bitmap
+        try {
+            byte[] decodedString = Base64.decode(base64String, Base64.DEFAULT);
+            return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

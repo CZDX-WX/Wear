@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.czdxwx.wear.R;
 import com.czdxwx.wear.adapter.MyPagerAdapter;
 import com.czdxwx.wear.entity.TabEntity;
+import com.czdxwx.wear.fragments.AlertVM;
 import com.czdxwx.wear.fragments.DeviceViewModel;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -38,6 +39,7 @@ public class TabActivity extends AppCompatActivity {
     /*********************************初始化数据*********************************/
 
     private DeviceViewModel deviceViewModel;
+    private AlertVM alertViewModel;
 
     private void initData() {
 
@@ -52,13 +54,24 @@ public class TabActivity extends AppCompatActivity {
         });
 
 
-    }
+        alertViewModel = new ViewModelProvider(this).get(AlertVM.class);
+        alertViewModel.fetchAlerts();
+        alertViewModel.getAlerts().observe(this, alerts -> {
+            if (alerts != null) {
 
+            } else {
+                Toast.makeText(TabActivity.this, "Error fetching alerts", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 
     public void refreshDevices() {
         deviceViewModel.fetchDevices();
     }
-
+    public void refreshAlerts() {
+        alertViewModel.fetchAlerts();
+    }
 
     /**************************UI********************************/
     private CommonTabLayout mTabLayout;

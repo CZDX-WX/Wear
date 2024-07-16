@@ -1,5 +1,6 @@
 [versions]
 agcp = "1.6.0.300"
+agcpVersion = "1.6.3.300"
 agp = "8.4.2"
 androidGradle = "7.0.4"
 androidscrollingimageview = "1.2"
@@ -18,14 +19,18 @@ githubRefreshFooterBall = "2.1.0"
 githubRefreshFooterClassics = "2.1.0"
 glide = "4.16.0"
 glideVersion = "3.7.0"
+googleServicesVersion = "4.3.15"
 gradle = "2.3.2"
 gradleVersion = "8.4.2"
 gson = "2.11.0"
 huawei = "5.0.0"
+huaweiPush = "6.11.0.300"
+huaweiAgcp = "1.9.1.300"
 jakewhartonButterknife = "10.2.3"
 jakewhartonButterknifeVersion = "10.2.3"
 jakewhartonButterknifeCompiler = "10.0.0"
 jpush = "5.0.0"
+jpushVersion = "5.4.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
@@ -37,6 +42,10 @@ lombokVersion = "1.18.32"
 material = "1.12.0"
 activity = "1.9.0"
 materialSpinner = "1.3.1"
+mmkv = "1.3.7"
+push = "6.9.0.300"
+pushOhos = "6.12.0.300"
+pushVersion = "6.5.0.300"
 ramotionCircleMenu = "0.3.2"
 legacySupportV4 = "1.0.0"
 lifecycleLivedataKtx = "2.8.1"
@@ -48,12 +57,17 @@ refreshHeaderFalsify = "2.1.0"
 refreshHeaderMaterial = "2.1.0"
 statebutton = "v1.0.0"
 titlebar = "10.5"
+toast = "8.8"
+toasterVersion = "12.6"
+toastVersion = "8.2"
 volley = "1.2.1"
 kotlin = "2.0.0"
 coreKtx = "1.10.1"
 
 [libraries]
 agcp = { module = "com.huawei.agconnect:agcp", version.ref = "agcp" }
+agcp-v163300 = { module = "com.huawei.agconnect:agcp", version.ref = "agcpVersion" }
+agcp-v191300 = { module = "com.huawei.agconnect:agcp", version.ref = "huaweiAgcp" }
 androidscrollingimageview = { module = "com.github.Q42:AndroidScrollingImageView", version.ref = "androidscrollingimageview" }
 androidscrollingimageview-v134 = { module = "com.github.Q42:AndroidScrollingImageView", version.ref = "androidscrollingimageviewVersion" }
 baserecyclerviewadapterhelper4 = { module = "io.github.cymchad:BaseRecyclerViewAdapterHelper4", version.ref = "baserecyclerviewadapterhelper4" }
@@ -70,11 +84,13 @@ card-slider = { module = "com.ramotion.cardslider:card-slider", version.ref = "c
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout" }
 design = { module = "com.android.support:design", version.ref = "design" }
 flycotablayout = { module = "io.github.h07000223:flycoTabLayout", version.ref = "flycotablayout" }
+getactivity-toaster = { module = "com.github.getActivity:Toaster", version.ref = "toasterVersion" }
 github-refresh-footer-classics = { module = "io.github.scwang90:refresh-footer-classics", version.ref = "githubRefreshFooterClassics" }
 github-refresh-footer-ball = { module = "io.github.scwang90:refresh-footer-ball", version.ref = "githubRefreshFooterBall" }
 github-refresh-header-two-level = { module = "io.github.scwang90:refresh-header-two-level", version.ref = "githubRefreshHeaderTwoLevel" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 glide-v370 = { module = "com.github.bumptech.glide:glide", version.ref = "glideVersion" }
+gms-google-services = { module = "com.google.gms:google-services", version.ref = "googleServicesVersion" }
 google-material = { module = "com.google.android.material:material" }
 gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
 gradle-v700 = { module = "com.android.tools.build:gradle", version.ref = "gradleVersion" }
@@ -82,6 +98,7 @@ gradle-v704 = { module = "com.android.tools.build:gradle", version.ref = "androi
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 huawei = { module = "cn.jiguang.sdk.plugin:huawei", version.ref = "huawei" }
 jpush = { module = "cn.jiguang.sdk:jpush", version.ref = "jpush" }
+jpush-v540 = { module = "cn.jiguang.sdk:jpush", version.ref = "jpushVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -92,6 +109,11 @@ lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 lombok-v11832 = { module = "org.projectlombok:lombok", version.ref = "lombokVersion" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 material-spinner = { module = "com.jaredrummler:material-spinner", version.ref = "materialSpinner" }
+mmkv = { module = "com.tencent:mmkv", version.ref = "mmkv" }
+push = { module = "com.huawei.hms:push", version.ref = "push" }
+push-ohos = { module = "com.huawei.hms:push-ohos", version.ref = "pushOhos" }
+push-v6110300 = { module = "com.huawei.hms:push", version.ref = "huaweiPush" }
+push-v650300 = { module = "com.huawei.hms:push", version.ref = "pushVersion" }
 ramotion-circle-menu = { module = "com.ramotion.circlemenu:circle-menu", version.ref = "ramotionCircleMenu" }
 recyclerview = { module = "androidx.recyclerview:recyclerview" }
 refresh-header-material = { module = "io.github.scwang90:refresh-header-material", version.ref = "refreshHeaderMaterial" }
@@ -101,6 +123,8 @@ refresh-header-classics = { module = "io.github.scwang90:refresh-header-classics
 refresh-layout-kernel = { module = "io.github.scwang90:refresh-layout-kernel", version.ref = "refreshLayoutKernel" }
 statebutton = { module = "com.github.niniloveyou:StateButton", version.ref = "statebutton" }
 titlebar = { module = "com.github.getActivity:TitleBar", version.ref = "titlebar" }
+toast = { module = "com.hjq:toast", version.ref = "toast" }
+toast-v82 = { module = "com.hjq:toast", version.ref = "toastVersion" }
 transitionseverywhere = { module = "com.andkulikov:transitionseverywhere" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
