@@ -1,5 +1,7 @@
 package com.czdxwx.wear.pages;
 
+import static com.czdxwx.wear.fragments.BlankFragment.updateEmergencyNumber;
+
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -10,27 +12,30 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.czdxwx.wear.R;
 import com.czdxwx.wear.adapter.MyPagerAdapter;
+import com.czdxwx.wear.dialog.CustomNumberInputDialog;
 import com.czdxwx.wear.entity.TabEntity;
 import com.czdxwx.wear.fragments.AlertVM;
 import com.czdxwx.wear.fragments.DeviceViewModel;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.tencent.mmkv.MMKV;
 
 import java.util.ArrayList;
 
 
-public class TabActivity extends AppCompatActivity {
+public class TabActivity extends AppCompatActivity implements CustomNumberInputDialog.CustomNumberInputDialogListener{
 
     private static final String TAG = "TabActivity";
-
+    private MMKV mmkv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_tab);
-
+        MMKV.initialize(this);
+        mmkv = MMKV.defaultMMKV();
         initUI();
         initData();
     }
@@ -79,7 +84,7 @@ public class TabActivity extends AppCompatActivity {
     private MyPagerAdapter adapter;
 
     private final ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
-    private final String[] mTitles = {"设备", "消息", "远程", "设置"};
+    private final String[] mTitles = {"设备", "消息", "远程", "个人"};
     private final int[] mIconUnselectIds = {
             R.mipmap.tab_device_unselect, R.mipmap.tab_speech_unselect,
             R.mipmap.tab_remote_unselect, R.mipmap.tab_more_unselect};
@@ -116,4 +121,11 @@ public class TabActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void applyNumber(String number) {
+        // Store number in MMKV
+        mmkv.encode("Number", number);
+        // 更新紧急电话号码显示
+        updateEmergencyNumber();
+    }
 }

@@ -99,4 +99,8 @@ dependencies {
     implementation libs.material.spinner
     implementation libs.getactivity.toaster
     implementation libs.mmkv
+    implementation libs.cardview
+    implementation libs.akexorcist.round.corner.progress.bar
+    implementation libs.titlebar
+
 }

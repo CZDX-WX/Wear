@@ -51,5 +51,10 @@ public class ApiClient {
     public void getPicByTime(String picName,final Response.Listener<String> listener, final Response.ErrorListener errorListener){
         apiService.getPicByTime(picName,listener,errorListener);
     }
+
+    public void getAlertPicByTime(String picName,final Response.Listener<String> listener, final Response.ErrorListener errorListener){
+        apiService.getAlertPicByTime(picName,listener,errorListener);
+    }
+
 }
 

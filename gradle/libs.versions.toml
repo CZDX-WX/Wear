@@ -12,8 +12,11 @@ butterknifeCompilerVersion = "10.2.3"
 butterknifeGradlePlugin = "10.2.3"
 butterknifeVersion = "8.8.1"
 cardSlider = "0.3.1"
+cardview = "1.0.0"
 design = "28.0.0"
+dialogplus = "1.11"
 flycotablayout = "3.0.0"
+foldingCell = "1.2.3"
 githubRefreshHeaderTwoLevel = "2.1.0"
 githubRefreshFooterBall = "2.1.0"
 githubRefreshFooterClassics = "2.1.0"
@@ -55,6 +58,7 @@ refreshHeaderClassics = "2.1.0"
 refreshHeaderRadar = "2.1.0"
 refreshHeaderFalsify = "2.1.0"
 refreshHeaderMaterial = "2.1.0"
+roundCornerProgressBarVersion = "2.2.1"
 statebutton = "v1.0.0"
 titlebar = "10.5"
 toast = "8.8"
@@ -68,6 +72,7 @@ coreKtx = "1.10.1"
 agcp = { module = "com.huawei.agconnect:agcp", version.ref = "agcp" }
 agcp-v163300 = { module = "com.huawei.agconnect:agcp", version.ref = "agcpVersion" }
 agcp-v191300 = { module = "com.huawei.agconnect:agcp", version.ref = "huaweiAgcp" }
+akexorcist-round-corner-progress-bar = { module = "com.akexorcist:round-corner-progress-bar", version.ref = "roundCornerProgressBarVersion" }
 androidscrollingimageview = { module = "com.github.Q42:AndroidScrollingImageView", version.ref = "androidscrollingimageview" }
 androidscrollingimageview-v134 = { module = "com.github.Q42:AndroidScrollingImageView", version.ref = "androidscrollingimageviewVersion" }
 baserecyclerviewadapterhelper4 = { module = "io.github.cymchad:BaseRecyclerViewAdapterHelper4", version.ref = "baserecyclerviewadapterhelper4" }
@@ -81,9 +86,12 @@ butterknife-v1000 = { module = "com.jakewharton:butterknife", version.ref = "jak
 butterknife-v1023 = { module = "com.jakewharton:butterknife", version.ref = "jakewhartonButterknife" }
 butterknife-v881 = { module = "com.jakewharton:butterknife", version.ref = "butterknifeVersion" }
 card-slider = { module = "com.ramotion.cardslider:card-slider", version.ref = "cardSlider" }
+cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout" }
 design = { module = "com.android.support:design", version.ref = "design" }
+dialogplus = { module = "com.orhanobut:dialogplus", version.ref = "dialogplus" }
 flycotablayout = { module = "io.github.h07000223:flycoTabLayout", version.ref = "flycotablayout" }
+folding-cell = { module = "com.ramotion.foldingcell:folding-cell", version.ref = "foldingCell" }
 getactivity-toaster = { module = "com.github.getActivity:Toaster", version.ref = "toasterVersion" }
 github-refresh-footer-classics = { module = "io.github.scwang90:refresh-footer-classics", version.ref = "githubRefreshFooterClassics" }
 github-refresh-footer-ball = { module = "io.github.scwang90:refresh-footer-ball", version.ref = "githubRefreshFooterBall" }

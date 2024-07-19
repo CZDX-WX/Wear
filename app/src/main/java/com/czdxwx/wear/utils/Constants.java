@@ -11,7 +11,7 @@ public class Constants {
     //验证密码
     public static final String VLIDATE_USER = BASE_URL + "users/validate";
     //获取静态地图
-    public static final String GET_STATIC_MAP="https://restapi.amap.com/v3/staticmap?key=d0f52bb91c6a794e2089d08bdf1bc41c&zoom=16&size=400*400&markers=mid,,A:";
+    public static final String GET_STATIC_MAP="https://restapi.amap.com/v3/staticmap?key=d0f52bb91c6a794e2089d08bdf1bc41c&zoom=14&size=450*450&markers=mid,,A:";
     //获取oss里的图片
     public static final String GET_PIC_OSS="http://47.109.198.70:8080/oss/exportFile";
 

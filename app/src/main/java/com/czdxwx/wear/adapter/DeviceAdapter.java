@@ -24,7 +24,8 @@ public class DeviceAdapter extends BaseQuickAdapter<Device, QuickViewHolder> {
                 .setText(R.id.device_owner,device.getOwner()+"的设备")
                 .setText(R.id.is_online,device.getIsOnline()==1?"设备在线":"设备离线")
                 .setTextColor(R.id.is_online,device.getIsOnline()==1?Color.BLACK:0xFF808080)
-                .setImageResource(R.id.imageView,device.getIsOnline()==1?R.mipmap.is_online:R.mipmap.is_off);
+                .setImageResource(R.id.imageView,device.getIsOnline()==1?R.mipmap.is_online:R.mipmap.is_off)
+                .setImageResource(R.id.img,device.getIsOnline()==1?R.drawable.ic_device:R.drawable.ic_device_offline);
     }
 
     @NonNull

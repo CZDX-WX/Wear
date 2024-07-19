@@ -1,6 +1,11 @@
 package com.czdxwx.wear;
 
 import android.app.Application;
+import android.app.NotificationChannel;
+import android.app.NotificationChannelGroup;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 
 import com.hjq.toast.Toaster;
@@ -32,6 +37,22 @@ public class MyApplication extends Application {
         MMKV.initialize(this);
 
 
+    }
+
+    private void initChannel() {
+        NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (nm != null) {
+            NotificationChannelGroup notificationChannelGroup = new NotificationChannelGroup("MyGroupId", "自定义通知组");
+            nm.createNotificationChannelGroup(notificationChannelGroup);
+
+            NotificationChannel notificationChannel = new NotificationChannel("m_channel123", "自定义通知 1", NotificationManager.IMPORTANCE_HIGH);
+            notificationChannel.setGroup("MyGroupId");
+            notificationChannel.enableLights(true);
+            notificationChannel.enableVibration(true);
+            notificationChannel.setSound(Uri.parse("android.resource://com.czdxwx.wear/raw/music"), null);
+
+            nm.createNotificationChannel(notificationChannel);
+        }
     }
 
 }

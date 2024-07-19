@@ -228,4 +228,50 @@ public class ApiService {
 
         VolleySingleton.getInstance(context).addToRequestQueue(stringRequest);
     }
+
+    //根据时间取每一个状态的图片
+    public void getAlertPicByTime(String picName,final Response.Listener<String> listener, final Response.ErrorListener errorListener){
+        String url = Constants.GET_PIC_OSS ;
+// 创建 JSON 对象
+        JSONObject jsonBody = new JSONObject();
+
+        try {
+            jsonBody.put("fileName", "alert/"+picName);
+        } catch (JSONException e) {
+            Log.e("getPicByTime", "getPicByTime: ",e );
+        }
+
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // 处理响应
+                        Log.d("Volley", "Response: " + response);
+                        listener.onResponse(response);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // 处理错误
+                        Log.e("Volley", "Error: " + error.toString());
+                    }
+                }
+        ) {
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+                return jsonBody.toString().getBytes();
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+        };
+
+
+        VolleySingleton.getInstance(context).addToRequestQueue(stringRequest);
+    }
 }

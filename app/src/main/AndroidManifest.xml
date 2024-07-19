@@ -5,7 +5,11 @@
     <permission
         android:name="${applicationId}.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="${applicationId}.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission
@@ -28,7 +32,7 @@
             android:exported="false" >
 
             <intent-filter>
-                <action android:name="com.czdxwx.ACTION_ALERT" />
+                <action android:name="com.czdxwx.ACTION_ALERT"/>
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

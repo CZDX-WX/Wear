@@ -3,8 +3,10 @@ package com.czdxwx.wear.pages;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -22,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import androidx.annotation.NonNull;
@@ -277,9 +280,9 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
 //                    Log.d(TAG,"请求的pic是："+response);
-                    Bitmap bitmap = decodeBase64ToBitmap(response);
+                    decodeBase64ToBitmap(response);
 //                    Log.d(TAG,"解码后的的pic是："+bitmap.toString());
-                    pics.add(bitmap);
+
                     latch.countDown(); // 每次成功获取图片后减少 latch 的计数器
                 }
             }, new Response.ErrorListener() {
@@ -532,10 +535,12 @@ public class MainActivity extends AppCompatActivity {
         return errorView;
     }
 
-    private Bitmap decodeBase64ToBitmap(String base64String) {
+    private void decodeBase64ToBitmap(String base64String) {
         // Check if base64String is valid
         if (base64String == null || base64String.isEmpty()) {
-            return null;
+            Log.e(TAG, "图片: base64String is null" );
+            Toast.makeText(MainActivity.this, "图片未获取到",Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "图片为空");
         }
 
         // Trim any leading or trailing whitespace
@@ -550,10 +555,20 @@ public class MainActivity extends AppCompatActivity {
         // Decode base64String to bitmap
         try {
             byte[] decodedString = Base64.decode(base64String, Base64.DEFAULT);
-            return BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            Bitmap bitmap=BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            Log.d(TAG, "解码后的的pic是：" + bitmap.toString());
+            pics.add(bitmap);
         } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            return null;
+            Log.e("base64解析错误",e.getMessage());
+            Toast.makeText(MainActivity.this, "解码失败",Toast.LENGTH_SHORT).show();
+            int imageResourceId = R.drawable.ic_fail;
+            Resources res = this.getResources();
+            Drawable drawable = res.getDrawable(imageResourceId);
+            Bitmap bit = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bit);
+            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            drawable.draw(canvas);
+            pics.add(bit);
         }
     }
 }
